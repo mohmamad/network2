@@ -128,7 +128,7 @@ public class ARBTable extends javax.swing.JFrame {
     void display(){
         URL url;
         try {
-            url = new URL ("http://localhost/Display_arb.php");
+            url = new URL ("http://localhost/network-p1/Display_arb.php");
             URLConnection urlc = url.openConnection();
             urlc.setAllowUserInteraction(true);
             urlc.setDoInput(true);

@@ -370,7 +370,7 @@ public class sysGroup extends javax.swing.JFrame {
     
     private void setConBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setConBtnActionPerformed
          try {
-            URL url = new URL("http://localhost/SetSystemG_contact.php");
+            URL url = new URL("http://localhost/network-p1/SetSystemG_contact.php");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
@@ -402,7 +402,7 @@ public class sysGroup extends javax.swing.JFrame {
 
     private void setLocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setLocBtnActionPerformed
         try {
-            URL url = new URL("http://localhost/SetSystemG_location.php");
+            URL url = new URL("http://localhost/network-p1/SetSystemG_location.php");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
@@ -434,7 +434,7 @@ public class sysGroup extends javax.swing.JFrame {
 
     private void setNameBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setNameBtnActionPerformed
         try {
-            URL url = new URL("http://localhost/SetSystemG_name.php");
+            URL url = new URL("http://localhost/network-p1/SetSystemG_name.php");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
@@ -471,7 +471,7 @@ public class sysGroup extends javax.swing.JFrame {
     public  void display(){
  URL url;
         try {
-            url = new URL ("http://localhost/Display_sys_group.php");
+            url = new URL ("http://localhost/network-p1/javaDisSysGroup.php");
             URLConnection urlc = url.openConnection();
             urlc.setAllowUserInteraction(true);
             urlc.setDoInput(true);

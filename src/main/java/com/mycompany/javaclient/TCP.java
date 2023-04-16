@@ -177,7 +177,7 @@ public class TCP extends javax.swing.JFrame {
     void display(){
         URL url;
         try {
-            url = new URL ("http://localhost/Display_tcp.php");
+            url = new URL ("http://localhost/network-p1/Display_tcp.php");
             URLConnection urlc = url.openConnection();
             urlc.setAllowUserInteraction(true);
             urlc.setDoInput(true);
