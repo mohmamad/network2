@@ -350,7 +350,7 @@ public class sysGroup extends javax.swing.JFrame {
     public  void display(){
  URL url;
         try {
-            url = new URL ("http://localhost/mysite/Display_sys_group.php?first=Manar&last=Qam");
+            url = new URL ("http://localhost/my-site/Display_sys_group.php");
             URLConnection urlc = url.openConnection();
             urlc.setAllowUserInteraction(true);
             urlc.setDoInput(true);

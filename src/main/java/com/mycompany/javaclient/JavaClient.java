@@ -23,7 +23,7 @@ public class JavaClient {
      */
     public static void main(String[] args) throws MalformedURLException, IOException {
         // TODO code application logic here
-        URL url = new URL ("http://localhost/mysite/snmpp_manger.php?first=Manar&last=Qam");
+        URL url = new URL ("http://localhost/mysite/snmpp_manger.php");
         URLConnection urlc = url.openConnection();
         urlc.setAllowUserInteraction(true);
         urlc.setDoInput(true);
