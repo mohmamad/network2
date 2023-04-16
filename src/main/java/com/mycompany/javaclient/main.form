@@ -135,11 +135,17 @@
                 <Property name="text" type="java.lang.String" value="TCP Conection"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TCPbtnActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="ARPbtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="ARP Table"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ARPbtnActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

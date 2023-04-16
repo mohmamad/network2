@@ -6,16 +6,20 @@ package com.mycompany.javaclient;
 
 import java.awt.Color;
 import java.awt.List;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javafx.scene.paint.Color.color;
+import sun.net.www.protocol.http.HttpURLConnection;
+//import static javafx.scene.paint.Color.color;
 
 /**
  *
@@ -94,10 +98,25 @@ public class sysGroup extends javax.swing.JFrame {
         });
 
         setConBtn.setText("Set Contact");
+        setConBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setConBtnActionPerformed(evt);
+            }
+        });
 
         setNameBtn.setText("Set Name");
+        setNameBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setNameBtnActionPerformed(evt);
+            }
+        });
 
         setLocBtn.setText("Set Location");
+        setLocBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setLocBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -342,6 +361,108 @@ public class sysGroup extends javax.swing.JFrame {
         Color c =new Color(153,255,255);
         backP.setBackground(c);
     }//GEN-LAST:event_backMouseExited
+
+    
+    
+    
+    
+    
+    
+    private void setConBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setConBtnActionPerformed
+         try {
+            URL url = new URL("http://localhost/SetSystemG_contact.php");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
+            connection.setRequestMethod("POST");
+
+            // set request headers
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            String contact=setConText.getText();
+            // encode parameter as URL-encoded string
+            String parameter = "{\"Contact\":\""+contact+"\"}";
+            byte[] postData = parameter.getBytes(StandardCharsets.UTF_8);
+
+            // write request data to output stream
+            OutputStream outputStream = connection.getOutputStream();
+            outputStream.write(postData);
+            outputStream.flush();
+
+            // read response data from input stream
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String responseString;
+            while ((responseString = in.readLine()) != null) {
+                System.out.println(responseString);
+            }
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        display();
+    }//GEN-LAST:event_setConBtnActionPerformed
+
+    private void setLocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setLocBtnActionPerformed
+        try {
+            URL url = new URL("http://localhost/SetSystemG_location.php");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
+            connection.setRequestMethod("POST");
+
+            // set request headers
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            String location=setLocText.getText();
+            // encode parameter as URL-encoded string
+            String parameter = "{\"Location\":\""+location+"\"}";
+            byte[] postData = parameter.getBytes(StandardCharsets.UTF_8);
+
+            // write request data to output stream
+            OutputStream outputStream = connection.getOutputStream();
+            outputStream.write(postData);
+            outputStream.flush();
+
+            // read response data from input stream
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String responseString;
+            while ((responseString = in.readLine()) != null) {
+                System.out.println(responseString);
+            }
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        display();
+    }//GEN-LAST:event_setLocBtnActionPerformed
+
+    private void setNameBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setNameBtnActionPerformed
+        try {
+            URL url = new URL("http://localhost/SetSystemG_name.php");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
+            connection.setRequestMethod("POST");
+
+            // set request headers
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            String name=setNameText.getText();
+            // encode parameter as URL-encoded string
+            String parameter = "{\"Name\":\""+name+"\"}";
+            byte[] postData = parameter.getBytes(StandardCharsets.UTF_8);
+
+            // write request data to output stream
+            OutputStream outputStream = connection.getOutputStream();
+            outputStream.write(postData);
+            outputStream.flush();
+
+            // read response data from input stream
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String responseString;
+            while ((responseString = in.readLine()) != null) {
+                System.out.println(responseString);
+            }
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        display();
+    }//GEN-LAST:event_setNameBtnActionPerformed
     
     /**
      * @param args the command line arguments
@@ -350,7 +471,7 @@ public class sysGroup extends javax.swing.JFrame {
     public  void display(){
  URL url;
         try {
-            url = new URL ("http://localhost/my-site/Display_sys_group.php");
+            url = new URL ("http://localhost/Display_sys_group.php");
             URLConnection urlc = url.openConnection();
             urlc.setAllowUserInteraction(true);
             urlc.setDoInput(true);
@@ -365,7 +486,6 @@ public class sysGroup extends javax.swing.JFrame {
             int count = 0;
             for (int ch=0; (ch = is.read()) != -1 ;){
                 charV.add((char)ch);
-
                 count++;
             }
             char[] test = new char[charV.size()];
@@ -393,9 +513,9 @@ public class sysGroup extends javax.swing.JFrame {
         sysOID.setText(allVals[1]);
         sysUPtime.setText(allVals[2]);
         sysCont.setText(allVals[3]);
-        sysName.setText(allVals[4].split("STRING:")[1]);
+        sysName.setText(allVals[4]);
         sysLoc.setText(allVals[5]);
-        sysSer.setText(allVals[6].split("INTEGER:")[1]);
+        sysSer.setText(allVals[6]);
         ////////////////////////////////////////////
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////

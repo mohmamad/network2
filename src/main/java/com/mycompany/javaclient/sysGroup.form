@@ -92,16 +92,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Set Contact"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setConBtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="setNameBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Set Name"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setNameBtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="setLocBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Set Location"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setLocBtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

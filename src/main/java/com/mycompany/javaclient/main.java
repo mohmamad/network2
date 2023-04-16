@@ -78,8 +78,18 @@ public class main extends javax.swing.JFrame {
 
         TCPbtn.setText("TCP Conection");
         TCPbtn.setToolTipText("");
+        TCPbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TCPbtnActionPerformed(evt);
+            }
+        });
 
         ARPbtn.setText("ARP Table");
+        ARPbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ARPbtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout btnsPLayout = new javax.swing.GroupLayout(btnsP);
         btnsP.setLayout(btnsPLayout);
@@ -127,6 +137,20 @@ public class main extends javax.swing.JFrame {
         s.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_sysGroupBtnActionPerformed
+
+    private void TCPbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TCPbtnActionPerformed
+        TCP s = new TCP();
+        s.setLocationRelativeTo(null);
+        s.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_TCPbtnActionPerformed
+
+    private void ARPbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ARPbtnActionPerformed
+        ARBTable s = new ARBTable();
+        s.setLocationRelativeTo(null);
+        s.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ARPbtnActionPerformed
 
     /**
      * @param args the command line arguments
